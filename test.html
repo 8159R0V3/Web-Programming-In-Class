@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Home Page</title>
-        <style>
+        <style type="text/css">
             body {background-color: black;}
             h1   {
                 color: yellow;
@@ -13,11 +13,70 @@
                 font-size: 200%;
                 margin: 50px;
                 }
+                .menu {
+                    width: 50%;
+                    list-style-type: none;
+                    color: #FFF;
+                    background-color:darkgoldenrod;
+                    margin: 0;
+                }
+                .menu li {
+                    display: block;
+                    padding: 5px;
+                }
+                .menu>li {
+                    display:inline-block;
+                    width: 100px;
+                }
+                .menu li:hover {
+                    background-color: black;
+                }
+                .menu ul {
+                    display: none;
+                    position: absolute;
+                    width: 150px;
+                    background-color: #FFF;
+                    border: 1px solid #909;
+                    margin-left: -5px;
+                    margin-top: 5px;
+                    padding: 0;
+                }
+                .menu li:hover ul {
+                    display:flex;
+                    
+                }
         </style>
     </head>
     <body>
+            
+        <ul class="menu">
+            <li>
+                File
+                <ul>
+                    <li>
+                        <a href="#"> open</a>
+                    </li>
+                    <li>
+                        <a href="#"> save</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li>
+                    Options
+                    <ul>
+                        <li><a href="#"> Network</a>
+                        </li>
+                        <li><a href="#"> Social</a>
+                        </li>
+                    </ul>
+                </li>
+        </ul>
         <h1>Welcome to my site</h1>
-        <p>They call me lord meme</p>
+        <p>This is a paragraph</p>
+
+        
         
     </body>
 </html>
+
