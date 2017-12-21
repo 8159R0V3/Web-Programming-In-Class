@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> </title>
+        <link type="text/css" rel="stylesheet"
+        href="stylesheet.css">
+    </head>
+
+    <body>
+
+        <div id="header">
+                <h1> EXERCISE! </h1>
+        </div>
+
+        <div id="navbar">
+           <li>
+               <a href = "login.php"> LogOut?</a>
+               <a href = "input.html"> I Exercised More!</a>
+               <a href = "others.html"> Others History.</a>
+           </li>
+        </div>
+        <div class ="main">
+            <ul>
+                <h2> Exercises Done</h2>
+                
+                <table id ="Record">
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </ul>
+        </div>
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script>
+        $(document) .ready(function() {
+                   // $("#Search").click(function() {
+                        var Searchtext = "herwo";
+                        //alert(Searchtext);
+                    $.ajax({
+                        url: 'server.php',
+                        type: 'POST',
+                        data:
+                            {
+                                'me': Searchtext
+                            },
+                            success: function(data) { // in case of success get the output, i named data
+                                         // do something with the output, like an alert
+                                         //alert(data);
+                                         
+                                         var str = data.split("//");
+                                         //alert(str[5]);
+                                         for(i = 0; i < (str.length); i++)
+                                         $("#Record tbody").append(
+                                            "<tr>"+
+                                            "<td>  " + str[i] + " </td>"+
+                                            "</tr>");
+                                    }
+                    })
+                    
+                //})
+
+
+                //$("#Delete").click(function() {
+                 //   $("#Record tbody").empty(
+                    //    "<tr>"+
+                        
+                     //   "</tr>");
+                    
+               // });
+                })
+            </script>
+        </body>
+    </html>
+    
