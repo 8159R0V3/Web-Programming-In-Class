@@ -8,8 +8,8 @@ $errors = array();
 $_SESSION['success'] = "";
 
 // connect to database
-$db = mysqli_connect('localhost', 'root', 'Qwerty19', 'registration');
-
+//$db = mysqli_connect('localhost', 'root', 'Qwerty19', 'registration');
+$db = mysqli_connect('mywebclass.cfe6114gdoyl.us-east-1.rds.amazonaws.com', 'david', 'Qwerty19', 'registration');
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
 	// receive all input values from the form
@@ -177,6 +177,35 @@ if (isset($_POST['me'])) {
 	{
 		echo('User Not Found. Please try again');
 	}
+}
+
+
+
+
+
+
+
+//final
+if (isset($_POST['suggestions'])) {
+	//$info = $_POST['info'];
+	$array = array();
+	$original = mysqli_query($db, "SELECT * from exerciseusers ");
+	while($originalarray = mysqli_fetch_array($original))
+	{
+	//echo $originalarray['username'];
+	//$test = "hi";
+
+
+		array_push($array, $originalarray['username']);
+		//echo "hi";
+		//echo($array);
+	}
+	$stringofarray = $array[0];
+	for($i = 1; $i<count($array); $i++)
+	{
+	$stringofarray = $stringofarray . "  " . $array[$i];
+	}
+	print($stringofarray);
 }
 ?>
 

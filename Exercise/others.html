@@ -24,7 +24,12 @@
                 <ul>
                     <h2> Exercises People Have Done</h2>
                     <button id = 'Search'> Search </button>
-                    <input type='text' id='person'/>
+                    <form><input id='person' list='users'>
+                        <datalist id='users'>
+                                
+                            </datalist>
+                    </form>
+                    
                     <table id ="Record">
                         <tbody>
     
@@ -40,6 +45,7 @@
             <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
             <script>
                 $(document) .ready(function() {
+                    var notimportant = 0;
                     $("#Search").click(function() {
                         var Searchtext = document.getElementById('person').value;
                         //alert(Searchtext);
@@ -74,6 +80,38 @@
                         "</tr>");
                     
                 });
+
+
+                //Final
+                $.ajax({
+                        url: 'server.php',
+                        type: 'POST',
+                        data:
+                            {
+                                'suggestions': notimportant
+                            },
+                            success: function(data) { // in case of success get the output, i named data
+                                         // do something with the output, like an alert
+                                         //alert(data);
+                                         
+                                         var str = data.split("  ");
+                                         //alert(str[5]);
+                                         for(i = 0; i < (str.length); i++)
+                                         $("#users ").append(
+                                          "<option value="+ str[i] +">");
+                                          //  "<td>  " + str[i] + " </td>"+
+                                          //  "</tr>");
+                                    }
+                    })
+
+
+
+
+
+
+
+
+
                 })
             </script>
         </body>
